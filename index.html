@@ -17,14 +17,35 @@
 
 
     <div class="container">	
+
         <script id="user-data-template" type="text/x-handlebars-template">
-            <div> {{dataObject.firstName}} </div>
-            <div> {{dataObject.lastName}} </div>
+            <div> {{firstName}} </div>
+            <div> {{lastName}} </div>
+            <div> {{city}} </div>
+            <div> {{state}} </div>
+            <img src="{{picture}}"/>
            </script>
+
         <div class="user-container"></div>	
+
+        <script id="quote-data-template" type="text/x-handlebars-template">
+            <div> {{favoriteQuote}} </div>
+           </script>
+
         <div class="quote-container"></div>	
         <div class="content-container">	
+
+            <script id="pokemon-data-template" type="text/x-handlebars-template">
+                <img src="{{favoritePokemonPicture}}"/>
+                <div> {{favoritePokemonName}} </div>
+               </script>
+
             <div class="pokemon-container"></div>	
+
+            <script id="meat-data-template" type="text/x-handlebars-template">
+                <div> {{aboutMeSentence}} </div>
+               </script>
+
             <div class="meat-container"></div>	
         </div>	
         <div class="friends">	
