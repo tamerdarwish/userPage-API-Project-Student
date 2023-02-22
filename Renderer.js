@@ -29,8 +29,12 @@ class Renderer {
         $('.meat-container').append(newHTML);
     }
 
-    friendsRender(){
-
+    friendsRender(dataObject){
+        const source = $('#friends-data-template').html();
+        const template = Handlebars.compile(source);
+        const myObject = {friends: dataObject.friends}
+        const newHTML = template(myObject);
+        $('.friends-container').append(newHTML);
     }
 
     mainRender(){

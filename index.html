@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,54 +14,65 @@
 
 <body>
 
-    
 
 
-    <div class="container">	
+
+    <div class="container">
 
         <script id="user-data-template" type="text/x-handlebars-template">
-            <div> {{firstName}} </div>
-            <div> {{lastName}} </div>
-            <div> {{city}} </div>
-            <div> {{state}} </div>
-            <img src="{{picture}}"/>
+            <img id="profile-pic" src="{{picture}}"/>
+            <div class="user-info"> {{firstName}} {{lastName}} | </div>
+            <div class="user-info"> {{city}},{{state}}  </div>
            </script>
 
-        <div class="user-container"></div>	
+        <div class="user-container"></div>
 
         <script id="quote-data-template" type="text/x-handlebars-template">
-            <div> {{favoriteQuote}} </div>
+            <p>Favorite quote:</p>
+            <div>  {{favoriteQuote}} </div>
            </script>
 
-        <div class="quote-container"></div>	
-        <div class="content-container">	
+        <div class="quote-container"></div>
+        <div class="content-container">
 
             <script id="pokemon-data-template" type="text/x-handlebars-template">
-                <img src="{{favoritePokemonPicture}}"/>
-                <div> {{favoritePokemonName}} </div>
+                <img  src="{{favoritePokemonPicture}} " alt='Avatar' />
+                <div> Favorite Pokemon: {{favoritePokemonName}} </div>
                </script>
 
-            <div class="pokemon-container"></div>	
+            <div class="pokemon-container"></div>
 
             <script id="meat-data-template" type="text/x-handlebars-template">
                 <div> {{aboutMeSentence}} </div>
                </script>
 
-            <div class="meat-container"></div>	
-        </div>	
-        <div class="friends">	
-            <h4>Friends</h4>	
-            <div class="friends-container">	
-            </div>	
-        </div>	
-        <div class="buttons">	
-            <button>Load User Data</button>	
-            <button>Display User</button>	
-        </div>	
+            <div class="meat-container"></div>
+        </div>
+        <div class="friends">
+            <h4>Friends</h4>
+
+            <script id="friends-data-template" type="text/x-handlebars-template">
+                <div>
+                    {{#each friends}}
+                    
+                    <div> {{name}} </div>
+                  {{/each}}
+                </div>
+               </script>
+
+
+            <div class="friends-container">
+            </div>
+        </div>
+        <div class="buttons">
+            <button>Load User Data</button>
+            <button>Display User</button>
+        </div>
     </div>
 
-    
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
     <script src="APIManager.js"></script>
     <script src="Renderer.js"></script>
