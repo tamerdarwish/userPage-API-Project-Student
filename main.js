@@ -1,17 +1,21 @@
-$("#load-user-button").on("click",function(){
-   let apiObject = new APIManager()
 
-   $("#display-button").on("click",function(){
-    apiObject.loadData()
-   })
-  
+const api = new APIManager()
+const render = new Renderer()
+
+$("#load-user-button").on("click",function(){
+  emptyAll()
+  api.loadData()
   })
 
-  
- 
+  $("#display-button").on("click",function(){
+    render.mainRender(api.data)
+   })
 
-let api = new APIManager()
-//let render = new Renderer()
-//let myData = api.loadData()
-//console.log(api.data)
-//render.userRender(api.data)
+
+   const emptyAll = function(){
+    $('.user-container').empty()
+    $('.quote-container').empty()
+    $('.pokemon-container').empty()
+    $('.meat-container').empty()
+    $('.friends-container').empty()
+}

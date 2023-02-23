@@ -5,12 +5,9 @@ class APIManager {
         this.data = {}
     }
 
-
-
     loadData() {
         let self = this
         let randomPokeID = Math.floor(Math.random() * 1000) + 1; // random integer from 1 to 1000
-        let render = new Renderer()
         
         // Get User Information From RandomUser API: 
         $.get('https://randomuser.me/api/')
@@ -20,7 +17,6 @@ class APIManager {
             self.data.city = dataResult.results[0].location.city
             self.data.state = dataResult.results[0].location.state
             self.data.picture = dataResult.results[0].picture.medium
-            render.userRender(self.data) 
         })  
 
         //Get 6 Friends Information From RandomUser API: 
@@ -29,18 +25,13 @@ class APIManager {
             $.get('https://randomuser.me/api/')
             .then((dataResult)=> {
                 self.data.friends.push( { id: i, name: dataResult.results[0].name.first + ' ' +dataResult.results[0].name.last})
-                if(i==5){
-                    render.friendsRender(self.data) 
-                }
             }) 
-          
         }
        
        // Get Favorite Quote From Kanye API: 
         $.get('https://api.kanye.rest/')
         .then((dataResult)=> {
             self.data.favoriteQuote = dataResult.quote
-            render.quoteRender(self.data) 
         }) 
     
         //Get Favorite Pokemon From PokeAPI: 
@@ -48,14 +39,12 @@ class APIManager {
         .then((dataResult)=> {
             self.data.favoritePokemonName = dataResult.name
             self.data.favoritePokemonPicture = dataResult.sprites.front_default
-            render.pokemonRender(self.data) 
         }) 
   
         //Get About Me Sentence From Bacon Ipsum API:
         $.get('https://baconipsum.com/api/?type=meat-and-filler')
         .then((dataResult)=> {
             self.data.aboutMeSentence = dataResult
-            render.aboutMeRender(self.data)
         }) 
     }
 }

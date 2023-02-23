@@ -37,8 +37,12 @@ class Renderer {
         $('.friends-container').append(newHTML);
     }
 
-    mainRender(){
-        
+    mainRender(dataObject){
+        this.friendsRender(dataObject)
+        this.userRender(dataObject)
+        this.quoteRender(dataObject)
+        this.pokemonRender(dataObject)
+        this.aboutMeRender(dataObject)
     }
 
 }
